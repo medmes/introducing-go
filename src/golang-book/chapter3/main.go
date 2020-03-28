@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 var sharedVariable string = "SHARED VARIABLE!" // Scope
@@ -43,13 +44,19 @@ func main() {
 	fmt.Println(c)
 
 	// Scanf as C language for reading input data
-	var input float64
-	fmt.Scanf("%f", &input)
-	output := input * 2
-	fmt.Println(output)
+	/*	var input float64
+		fmt.Scanf("%f", &input)
+		output := input * 2
+		fmt.Println(output)*/
+
+	fmt.Println(math.Round(convertFahrenheitToCelsius(76.7)))
 
 }
 
 func f() {
 	fmt.Println(sharedVariable)
+}
+
+func convertFahrenheitToCelsius(f float64) float64 {
+	return (f - 32) * 5 / 9
 }
