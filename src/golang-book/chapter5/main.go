@@ -72,5 +72,57 @@ func main() {
 	fmt.Println("Sorted myArray: ")
 	fmt.Println("myArray: ", myArray)
 	fmt.Println("myArrayCopy: ", myArrayCopy)
-	
+
+	//A map is an unordered collection of key-value pairs (maps are also sometimes called associative arrays, hash tables, or dictionaries).
+	//Hash Table
+	fmt.Println("_______Maps_______")
+
+	//var myMap map[int]string
+	myMapInitialized := map[string]float64{
+		"e":  2.71828,
+		"pi": 3.1416,
+		"eu": 0.57721,
+	}
+
+	//Iterating over Map
+	for k, v := range myMapInitialized {
+		fmt.Printf("key[%s] value[%f]\n", k, v)
+	}
+
+	// Creating map using make function
+	elements := make(map[string]string)
+	elements["H"] = "Hydrogen"
+	elements["He"] = "Helium"
+	elements["Li"] = "Lithium"
+	elements["Be"] = "Beryllium"
+	elements["B"] = "Boron"
+	elements["C"] = "Carbon"
+	elements["N"] = "Nitrogen"
+	elements["O"] = "Oxygen"
+	elements["F"] = "Fluorine"
+	elements["Ne"] = "Neon"
+
+	if name, isOK := elements["B"]; isOK {
+		fmt.Println(name, isOK)
+	}
+
+	// Exes:
+	xm := [6]string{"a", "b", "c", "d", "e", "f"}
+	fmt.Println(xm[2:5])
+	fmt.Println(len(xm[2:5]))
+	fmt.Println(cap(xm[2:5]))
+
+	elems := []int{48, 96, 86, 68,
+		57, 82, 63, 70,
+		37, 34, 83, 27,
+		19, 97, 9, 17,
+	}
+
+	smallest := elems[0]
+	for i := 0; i < len(elems); i++ {
+		if smallest > elems[i] {
+			smallest = elems[i]
+		}
+	}
+	fmt.Println(smallest)
 }
