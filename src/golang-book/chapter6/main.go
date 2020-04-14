@@ -6,7 +6,7 @@ func main() {
 
 	//Functions
 	numbers := []float64{98, 93, 77, 82, 83}
-
+	defer deferred()
 	fmt.Println(average(numbers))
 	x, y := returnTwoValues()
 	fmt.Println(x, y)
@@ -22,6 +22,11 @@ func main() {
 	fmt.Println(increment())
 
 	fmt.Println(factorial(10))
+	defer func() {
+		str := recover()
+		fmt.Println(str)
+	}()
+	panic("PANIC")
 }
 
 /**
@@ -48,4 +53,8 @@ func factorial(x uint) uint {
 		return 1
 	}
 	return x * factorial(x-1)
+}
+
+func deferred() {
+	fmt.Println("This function will be invoked after the main function exit!")
 }
