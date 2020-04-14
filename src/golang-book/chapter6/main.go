@@ -5,6 +5,8 @@ import "fmt"
 func main() {
 
 	//Functions
+	fmt.Println("______Functions______")
+
 	numbers := []float64{98, 93, 77, 82, 83}
 	defer deferred()
 	fmt.Println(average(numbers))
@@ -26,7 +28,22 @@ func main() {
 		str := recover()
 		fmt.Println(str)
 	}()
+
+	// Pointers
+	fmt.Println("______Pointers______")
+	xPtr := 10
+	zero(&xPtr)
+	fmt.Println(xPtr)
+	fmt.Println(&xPtr)
+
+	a := 200
+	b := &a
+	*b++
+	fmt.Println(*b)
+	fmt.Println(a)
+
 	panic("PANIC")
+	// Unreachable code, after this line!
 }
 
 /**
@@ -57,4 +74,8 @@ func factorial(x uint) uint {
 
 func deferred() {
 	fmt.Println("This function will be invoked after the main function exit!")
+}
+
+func zero(ptr *int) {
+	*ptr = 0
 }
